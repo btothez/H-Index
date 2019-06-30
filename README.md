@@ -72,4 +72,4 @@ The next step is to create a metric on each of these buckets (the collection of 
     return h_index;
 ```
 
-To break this down, the states value comes in as an array of arrays (from different shards on the ES instance), and needs to be accumulated into one Array. From there, the values (citation counts of the documents are sorted in descending order). As the script iterates through the descending citation_counts, the final index at which the index is less than or equal to the citation count is returned as the value of h_index.
+To break this down, the states value comes in as an array of arrays (from different shards on the ES instance), and needs to be accumulated into one Array. From there, the values (citation counts of the documents) are sorted in descending order. As the script iterates through the descending citation_counts, the final index at which the index is less than or equal to the citation count is returned as the value of h_index.
