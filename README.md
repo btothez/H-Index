@@ -1,6 +1,6 @@
 # Introduction
 
-This is a simple app, built on the tornado framework which can access an ElasticSearch instance. Looking at a collection of research papers, the app can return the highest ranked authors in order of their H-Index.
+This is a simple app, built on the Tornado framework which can access an Elasticsearch instance. Looking at a collection of research papers, the app can return the highest ranked authors in order of their H-Index.
 
 When accessed in the following way:
 
@@ -32,7 +32,7 @@ The app returns the following JSON:
 
 ## Setup
 
-First make sure elasticsearch is running locally on port 9200. In an environment with a elasticsearch and tornado installed via pip, first run the following script:
+First make sure Elasticsearch is running locally on port 9200. In an environment with a Elasticsearch and Tornado installed via pip, first run the following script:
 
 
 ```bash
@@ -48,7 +48,7 @@ Next, run the server locally by running:
 ```
 
 ## The code
-The elastic search query is very straightforward, it simply uses the url parameter 'subject' ("brain cancer" by default) to retrieve documents with this phrase in their abstract. The aggregation engine then groups all these documents by their author.
+The Elasticsearch query is very straightforward, it simply uses the url parameter 'subject' ("brain cancer" by default) to retrieve documents with this phrase in their abstract. The aggregation engine then groups all these documents by their author.
 
 The next step is to create a metric on each of these buckets (the collection of documents by the author) called h-index. This was done using script metric feature of Elastic Search. The most relevant part of this script, the "reduce script," was written in the native ES scripting language called "Painless"
 ```javascript
