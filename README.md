@@ -5,51 +5,48 @@ This is a simple app, built on the tornado framework which can access an Elastic
 When accessed in the following way:
 
 ```bash
-curl "http://localhost:9999/?limit=1000&subject=brain%cancer"
+curl "http://localhost:9999/?limit=20&subject=brain%20cancer"
 ```
 
 The app returns the following JSON:
 ```json
 [
     {
-        "author": "Marina Hansen",
+        "author": "Marco Cain",
         "doc_count": 56,
         "h_index": 18
     },
     {
-        "author": "Marilyn Mccarty",
+        "author": "Alicia Shah",
         "doc_count": 55,
-        "h_index": 18
+        "h_index": 17
     },
     {
-        "author": "Melvin Livingston",
-        "doc_count": 55,
-        "h_index": 18
+        "author": "David Raymond",
+        "doc_count": 56,
+        "h_index": 16
     }
 ]
 ```
 
 
+## Setup
 
-## Installation
+First make sure elasticsearch is running locally on port 9200. In an environment with a elasticsearch and tornado installed via pip, first run the following script:
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
-pip install foobar
+./data_factory.py
 ```
 
-## Usage
+This inserts hundreds of documents into storage which can then be queried and aggregated, used to compute an h-index score, and finally sorted by this score.
 
-```python
-import foobar
+Next, run the server locally by running:
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```bash
+./app.py
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## The code
 
-Please make sure to update tests as appropriate.
+
