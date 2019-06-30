@@ -1,6 +1,6 @@
 # Introduction
 
-This is a simple app, built on the tornado framework which can access an ElasticSearch. Over a collection of documents, the app returns the authors in order of their H-Index.
+This is a simple app, built on the tornado framework which can access an ElasticSearch instance. Over a collection of documents, the app returns the authors in order of their H-Index.
 
 When accessed in the following way:
 
