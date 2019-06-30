@@ -48,5 +48,26 @@ Next, run the server locally by running:
 ```
 
 ## The code
+The elastic search query is very straightforward, it simply uses the url parameter 'subject' ("brain cancer" by default) to retrieve documents with this phrase in their abstract. The aggregation engine then groups all these documents by their author. 
 
-
+The next step is to create a metric on each of these buckets (the collection of documents by the author) called h-index. This was done using script metric feature of Elastic Search. The most relevant part of this script, the "reduce script," was written in the native ES scripting language called "Painless"
+```javascript
+    def citationCounts = [];
+    for (state in states) {
+        for (el in state) {
+            citationCounts.add(el);
+        }
+    }
+    citationCounts.sort((x,y) -> (int)y - (int)x);
+    def h_index = 0;
+    int index = 1;
+    for (cnt in citationCounts) {
+        if (index <= cnt) {
+            h_index = index;
+        } else {
+            break;
+        }
+        index+=1;
+    }
+    return h_index;
+```
