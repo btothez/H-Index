@@ -1,6 +1,6 @@
 # Introduction
 
-This is a simple app, built on the Tornado framework which can access an Elasticsearch instance. Looking at a collection of research papers, the app can return the highest ranked authors in order of their H-Index.
+This is a simple app built on the Tornado framework, which can access an Elasticsearch instance. Looking at a collection of research papers, the app can return the highest ranked authors in order of their H-Index.
 
 When accessed in the following way:
 
