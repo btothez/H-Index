@@ -1,0 +1,9 @@
+.idea
+geckodriver.log
+screenshot-fail-*
+failed-*.png
+**/__pycache__
+.vscode
+.swp
+notebooks/
+.ipynb_checkpoints/
